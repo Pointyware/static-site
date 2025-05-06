@@ -1,0 +1,43 @@
+
+
+#header {
+    font-size: large;
+}
+
+#content {
+    font-size: small;
+}
+
+#project-list {
+    background-color: lightblue;
+}
+
+#h2 {
+    font-size: large;
+}
+
+.project-card {
+    font-size: medium;
+    background-color: darkgreen;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.project-title {
+    font-size: medium;
+    font-weight: 700;
+}
+
+.project-description {
+    font-size: medium;
+    font-weight: 500;
+}
+
+.project-promo {
+    font-size: medium;
+    font-weight: 900;
+}
+
+#footer {
+    font-size: smaller;
+}
