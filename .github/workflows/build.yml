@@ -1,0 +1,65 @@
+name: Build and Publish Site
+description: Build Static Site Content (React)
+run-name: Build REF({{ inputs. }})
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 25.2.1
+      - name: Build Site
+      - name: Upload Artifact
+        uses: github/upload-artifact
+        with:
+          artifact-name: 
+      - name: Publish
+        uses: github/publish-pages
+        with:
+          file-path: 
+
+  build-bun:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.11
+      - name: Build Site
+        run: 
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v6
+        with:
+          path: output
+          name: github-pages
+      - name: Publish Archive to GitHub Pages
+        id: publish
+        uses: actions/deploy-pages@4
+        with:
+          name: 
+
+      - name: Report
+        run: |
+          echo Successfully Deployed to {{ steps.publish.output.page_url }}!
+
+  build-deno:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Deno
+      - name: Build Site
+      - name: Upload Artifact
+  
+  deploy-node:
+    depends-on: build-node
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull Artifact
+      - name: Publish to Pages
