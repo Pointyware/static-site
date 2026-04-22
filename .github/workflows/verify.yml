@@ -1,0 +1,26 @@
+name: Verify Pull Request
+description: 
+run-name: Verify REFF({{ inputs.ref }})
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Linting
+    runs-on: ubunut-latest
+    steps:
+      - name: Setup Node
+      - name: Test
+        run: |
+  test:
+    name: Tests
+    runs-on: ubunut-latest
+    steps:
+      - name: Setup Node
+        name: Check Formatting and StylePasses Tests
+        run: |
+          npm run test &&
+          npm run lint
