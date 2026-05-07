@@ -1,4 +1,4 @@
-import { Post } from '/model/post'
+import { Post } from '@/model/post'
 import { PostsDataSource } from "./posts-data-source"
 
 /**

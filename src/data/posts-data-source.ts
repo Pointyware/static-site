@@ -1,5 +1,5 @@
 import { Url } from "url";
-import { Post } from '/model/post'
+import { Post } from '@/model/post'
 
 /**
  * 
