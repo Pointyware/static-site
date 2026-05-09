@@ -139,3 +139,39 @@ a.secondary {
     --button-secondary-border: #1a1a1a;
   }
 }
+
+:root {
+  --font-weight-medium: 600;
+  --font-weight-light: 500;
+  --font-weight-lightest: 200;
+}
+
+.projectCard {
+  background-color: #383838;
+  padding: 12px;
+}
+
+.projectName {
+  font-size: 18pt;
+  font-weight: var(--font-weight-medium)
+}
+
+.projectDesc {
+  font-size: 15pt;
+  font-weight: var(--font-weight-light)
+}
+
+.about {
+  font-size: 12pt;
+  font-weight: var(--font-weight-medium);
+}
+
+.contact {
+  font-size: 12pt;
+  font-weight: var(--font-weight-medium);
+}
+
+.copyright {
+  font-size: 10pt;
+  font-weight: var(--font-weight-lightest)
+}
