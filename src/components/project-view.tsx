@@ -6,13 +6,9 @@ export interface ProjectViewModel {
 }
 
 export default function ProjectView({project}:ProjectViewModel) {
-
-  
-
   return <div className={styles.projectCard}>
-      <h4 className={styles.projectName}>{ project.name }</h4>
+      <h4 className={styles.projectName}><a href={ project.page }>{ project.name }</a></h4>
       <p className={styles.projectDesc}>{ project.description }</p>
-      <p className={styles.projectDesc}>{ project.page }</p>
       <p className={styles.ctas}>Under development on <a href={ project.repo.toString() }>GitHub</a></p>
   </div>
 }
