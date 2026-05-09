@@ -7,4 +7,5 @@ export interface Project {
   name:string
   repo:URL
   description:string
+  page: string
 }
