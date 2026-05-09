@@ -1,5 +1,5 @@
 
-import { Post } from '../model/post'
+import { Post } from '@/model/post'
 
 export function PostPage(post: Post) {
   return <div>
