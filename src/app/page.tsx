@@ -5,6 +5,18 @@ import ProjectList from "./_components/project-list";
 import Footer from "./_components/footer";
 import { Project } from "@/model/project";
 
+export default function Home() {
+  return (
+    <div className={styles.page}>
+      <main className={styles.main}>
+        <Welcome />
+        <ProjectList projects={projectList}/>
+        <Footer />
+      </main>
+    </div>
+  );
+}
+
 const projectList: Project[] = [
   {
     name: 'Cymatics',
@@ -32,39 +44,3 @@ const projectList: Project[] = [
     page: './xyz',
   }
 ]
-
-export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Welcome />
-        <ProjectList projects={projectList}/>
-        <Footer />
-      </main>
-    </div>
-  );
-}
-
-/*
-TODO: transfer head meta info to react format
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pointyware</title>
-        <link rel="stylesheet" href="styles.css">
-        <script src="script.js"></script>
-        <link rel="icon" href="favicon.ico" type="image/x-icon">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SGSMS8T369"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SGSMS8T369');
-</script>
-
-    </head>
-
-*/
