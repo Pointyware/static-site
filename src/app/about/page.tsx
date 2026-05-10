@@ -1,4 +1,4 @@
-import { About, Contact, Copyright } from "@/components/about.components";
+import { About, Contact, Copyright } from "@/components/about-components";
 
 export default function AboutPage() {
 
