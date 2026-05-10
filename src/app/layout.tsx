@@ -1,6 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Harmattan, ZCOOL_XiaoWei, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+const harmattan = Harmattan({
+  weight: '500',
+  // variable: '--font-harmattan',
+  subsets: ['latin', 'arabic']
+})
+
+const chinese = ZCOOL_XiaoWei({
+  weight: '400'
+  // variable: "--font-zcool-xiaowei"
+})
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
