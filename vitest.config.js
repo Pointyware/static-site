@@ -18,17 +18,17 @@ export default defineConfig({
     browser: {
       provider: playwright({
         launchOptions: {
-          slowMo: 50,
-          channel: 'chromium'
+          slowMo: 50
         },
         actionTimeout: 4_000,
         persistentContext: false
       }),
+      headless: true,
       enabled: true,
       instances: [
         {browser: 'chromium'}, // first priority (~71%)
-        // {browser: 'webkit'}, // second most common because of Apple (14-15%)
-        // {browser: 'firefox'}, // last priority (~2-3%)
+        {browser: 'webkit'}, // second most common because of Apple (14-15%)
+        {browser: 'firefox'}, // last priority (~2-3%)
       ]
     }
   }

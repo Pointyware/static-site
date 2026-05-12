@@ -11,7 +11,8 @@
     "test": "npm run test:unit && npm run test:integration && npm run test:e2e",
     "test:unit": "vitest src",
     "test:integration": "vitest test",
-    "test:e2e": "vitest scenario"
+    "test:e2e": "vitest scenario",
+    "test:clean": "rm -rf ./src/app/__screenshots__ && rm -rf ./.vitest-attachments"
   },
   "dependencies": {
     "next": "^16.2.6",
