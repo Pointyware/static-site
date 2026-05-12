@@ -141,37 +141,68 @@ a.secondary {
 }
 
 :root {
+  color-scheme: light dark;
+
   --font-weight-medium: 600;
   --font-weight-light: 500;
   --font-weight-lightest: 200;
+
+  --spacing-medium: 16px;
+  
+
+  --color-text-light: #0e0e0e;
+  --color-surface-light: #fefee0;
+
+  --color-text-dark: #fefee0;
+  --color-surface-dark: #383838;
+
+  --color-text: light-dark(var(--color-text-light), var(--color-text-dark));
+  --color-surface: light-dark(var(--color-surface-light), var(--color-surface-dark));
+}
+
+.projectList {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  column-gap: 8px;
+  row-gap: 16px;
+  align-content: stretch;
 }
 
 .projectCard {
-  background-color: #383838;
-  padding: 12px;
+  background-color: var(--color-surface);
+  padding: var(--spacing-medium);
+
+  border-radius: var(--spacing-medium);
 }
 
 .projectName {
   font-size: 18pt;
-  font-weight: var(--font-weight-medium)
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
 }
 
 .projectDesc {
   font-size: 15pt;
-  font-weight: var(--font-weight-light)
+  font-weight: var(--font-weight-light);
+  color: var(--color-text);
 }
 
 .about {
   font-size: 12pt;
   font-weight: var(--font-weight-medium);
+  color: var(--color-text);
 }
 
 .contact {
   font-size: 12pt;
   font-weight: var(--font-weight-medium);
+  color: var(--color-text);
 }
 
 .copyright {
   font-size: 10pt;
-  font-weight: var(--font-weight-lightest)
+  font-weight: var(--font-weight-lightest);
+  color: var(--color-text);
 }
