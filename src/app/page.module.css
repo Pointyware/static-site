@@ -1,6 +1,14 @@
+@import url('globals.css');
+
 .page {
-  --background: #fafafa;
-  --foreground: #fff;
+  --background-light: #fafafa;
+  --foreground-light: #fff;
+
+  --background-dark: #080808;
+  --foreground-dark: #000;
+
+  --background: light-dark(var(--background-light), var(--background-dark));
+  --foreground: light-dark(var(--foreground-light), var(--foreground-dark));
 
   --text-primary: #000;
   --text-secondary: #666;
@@ -9,12 +17,13 @@
   --button-secondary-hover: #f2f2f2;
   --button-secondary-border: #ebebeb;
 
+  color-scheme: light dark;
   display: flex;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
   font-family: var(--font-geist-sans);
-  background-color: var(--background);
+  background-color: light-dark(var(--surface-light), var(--surface-dark));
 }
 
 .main {
@@ -140,26 +149,6 @@ a.secondary {
   }
 }
 
-:root {
-  color-scheme: light dark;
-
-  --font-weight-medium: 600;
-  --font-weight-light: 500;
-  --font-weight-lightest: 200;
-
-  --spacing-medium: 16px;
-  
-
-  --color-text-light: #0e0e0e;
-  --color-surface-light: #fefee0;
-
-  --color-text-dark: #fefee0;
-  --color-surface-dark: #383838;
-
-  --color-text: light-dark(var(--color-text-light), var(--color-text-dark));
-  --color-surface: light-dark(var(--color-surface-light), var(--color-surface-dark));
-}
-
 .projectList {
   display: flex;
   flex-direction: column;
@@ -205,4 +194,11 @@ a.secondary {
   font-size: 10pt;
   font-weight: var(--font-weight-lightest);
   color: var(--color-text);
+}
+
+.loginForm {
+  height: 100vh;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
 }
