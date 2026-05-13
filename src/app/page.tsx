@@ -1,16 +1,12 @@
 import styles from "./page.module.css";
-import Welcome from "./_components/welcome";
 import ProjectList from "./_components/project-list";
-import Footer from "./_components/footer";
 import { Project } from "@/model/project";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Welcome />
         <ProjectList projects={projectList}/>
-        <Footer />
       </main>
     </div>
   );
