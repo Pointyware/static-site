@@ -23,6 +23,12 @@ const projectList: Project[] = [
     page: './cymatics',
   },
   {
+    name: 'Gather',
+    repo: new URL('https://github.com/Pointyware/Gather'),
+    description: '',
+    page: './gather'
+  },
+  {
     name: 'OpenAds',
     repo: new URL('https://github.com/Pointyware/OpenAds'),
     description: 'Exposing the internal workings of Ad Networks for Business and Consumer transparency and safety!\n\nUnder development on GitHub',
