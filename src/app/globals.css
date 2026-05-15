@@ -9,6 +9,10 @@
 
   --background: light-dark(var(--background-light), var(--background-dark));
   --foreground: light-dark(var(--foreground-light), var(--foreground-dark));
+
+  --background-2-light: #fff;
+  --background-2-dark: #000;
+  --background-2: light-dark(var(--background-2-light), var(--background-2-dark));
 /* 
   --surface-light: #fafafa;
 
@@ -32,13 +36,20 @@
 }
 
 header {
-  width: 100vw
+  width: 100vw;
+
+  background-color: var(--background-2);
+
+  z-index: 100;
 }
 
 html,
 body {
   display: flex;
   flex-flow: column;
+  place-content: center space-around;
+
+  display: grid;
   place-content: center;
 
   max-width: 100vw;
@@ -53,6 +64,8 @@ body {
 
 footer {
   width: 100vw;
+
+  z-index: 100;
 }
 
 * {
@@ -73,8 +86,7 @@ a {
 }
 
 .container {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-content: center space-around;
+  gap: 1em;
 }

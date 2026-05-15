@@ -5,9 +5,11 @@ import { Project } from "@/model/project";
 export default function Home() {
   return (
     <div className={styles.page}>
+      {/* TODO: Left Panel */}
       <main className={styles.main}>
         <ProjectList projects={projectList}/>
       </main>
+      {/* TODO: Right Panel */}
     </div>
   );
 }
