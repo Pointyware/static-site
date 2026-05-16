@@ -31,12 +31,14 @@ export default function LoginPage({ onLogin, onCreateUser }:LoginPageProps) {
   const [confirmPass, setConfirmPass] = useState('')
 
   return (
-    <main className={styles.main}>
-      <LoginForm username={username} setUsername={setUsername} 
-        password={password} setPassword={setPassword} 
-        confirmPass={confirmPass} setConfirmPass={setConfirmPass}
-        onLogin={onLogin} onCreateUser={onCreateUser} />
-    </main>
+    <div className={styles.page}>
+      <main className={styles.main}>
+        <LoginForm username={username} setUsername={setUsername} 
+          password={password} setPassword={setPassword} 
+          confirmPass={confirmPass} setConfirmPass={setConfirmPass}
+          onLogin={onLogin} onCreateUser={onCreateUser} />
+      </main>
+    </div>
   )
 }
 
