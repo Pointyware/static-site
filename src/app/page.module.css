@@ -1,40 +1,54 @@
 @import url('globals.css');
 
+/* Clamping Values Based on @media(max-width: 600) */
+/*   Vertical Values are based on an assumed 400px */
+/* 
+TODO: consider using calc() for preferred values to interpolate between min and max 
+total = (B - A) / (max - min) * value + bias
+where value: pixel width of screen
+min: A
+max: B
+slope = (B - A) / (max - min)
+
+
+consider when total=B, value=max:
+  B = (B - A) / (max - min) * max + bias
+  bias = B - (B - A) / (max - min) * max
+or when total=A, value=min:
+  A = (B - A) / (max - min) * min + bias
+  bias = A - (B - A) / (max - min) * min
+
+calc(100vw * slope + bias)
+
+ */
+
 .page {
-  --background-light: #fafafa;
-  --foreground-light: #fff;
-
-  --background-dark: #080808;
-  --foreground-dark: #000;
-
-  --background: light-dark(var(--background-light), var(--background-dark));
-  --foreground: light-dark(var(--foreground-light), var(--foreground-dark));
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  color-scheme: light dark;
+  flex: 1;
   display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
+  place-content: center center;
+
   font-family: var(--font-geist-sans);
   background-color: light-dark(var(--surface-light), var(--surface-dark));
 }
 
 .main {
-  display: flex;
+  flex: 1;
+
+  display: grid;
+  place-content: center center;
+
+  padding:
+    clamp(var(--spacing-4), calc(15vh - 10px), var(--spacing-9)) 
+    clamp(var(--spacing-4), calc(2vw + 10px), var(--spacing-9));
+
   width: 100%;
   max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
+
+  height: auto;
+
   background-color: var(--foreground);
-  padding: 120px 60px;
+
+  box-shadow: var(--shadow-standard);
 }
 
 .intro {
@@ -42,15 +56,16 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  gap: 24px;
+
+  gap: clamp(16px, .04vw, 24px);
 }
 
 .intro h1 {
   max-width: 320px;
-  font-size: 40px;
+  font-size: clamp(32px, 7vw, 40px);
   font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
+  line-height: clamp(40px, 8vh, 48px);
+  letter-spacing: clamp(-2.4px, .4vw, -1.92px);
   text-wrap: balance;
   color: var(--text-primary);
 }
@@ -114,22 +129,6 @@ a.secondary {
   }
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
-}
-
 @media (prefers-color-scheme: dark) {
   .logo {
     filter: invert();
@@ -160,9 +159,11 @@ a.secondary {
 
 .projectCard {
   background-color: var(--color-surface);
-  padding: var(--spacing-medium);
+  padding: var(--spacing-6);
 
-  border-radius: var(--spacing-medium);
+  border-radius: var(--spacing-3);
+
+  box-shadow: var(--shadow-standard);
 }
 
 .projectName {
@@ -196,8 +197,9 @@ a.secondary {
 }
 
 .loginForm {
-  height: 100vh;
   width: fit-content;
+
   display: flex;
   flex-direction: column;
+  place-content: center center;
 }
