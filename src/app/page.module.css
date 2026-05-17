@@ -48,7 +48,7 @@ calc(100vw * slope + bias)
 
   background-color: var(--foreground);
 
-  box-shadow: var(--shadow-standard);
+  box-shadow: light-dark(var(--shadow-standard), var(--glow-standard));
 }
 
 .intro {
@@ -163,7 +163,7 @@ a.secondary {
 
   border-radius: var(--spacing-3);
 
-  box-shadow: var(--shadow-standard);
+  box-shadow: light-dark(var(--shadow-standard), var(--glow-standard));
 }
 
 .projectName {

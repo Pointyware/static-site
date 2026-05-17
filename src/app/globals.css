@@ -60,7 +60,9 @@
   --shadow-offset-y: 0px;
   --shadow-offset: 0px 0px;
   --shadow-color: #00000010;
+  --glow-color: #ffffff40;
   --shadow-standard: var(--shadow-offset) 5px 1px var(--shadow-color);
+  --glow-standard: var(--shadow-offset) 5px 1px var(--glow-color);
 }
 
 html,
@@ -88,14 +90,14 @@ header {
 
   display: flex;
   flex-direction: row;
-  place-content: flex-start space-between;
+  place-content: end space-between;
 
-  padding: var(--spacing-5);
+  padding: var(--spacing-5) var(--spacing-9);
 
   background-color: var(--background-2);
   z-index: 100;
 
-  box-shadow: var(--shadow-standard);
+  box-shadow: light-dark(var(--shadow-standard), var(--glow-standard));
 }
 
 footer {
@@ -105,7 +107,7 @@ footer {
   background-color: var(--background-2);
   z-index: 100;
 
-  box-shadow: var(--shadow-standard);
+  box-shadow: light-dark(var(--shadow-standard), var(--glow-standard));
 }
 
 * {
