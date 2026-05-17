@@ -202,4 +202,6 @@ a.secondary {
   display: flex;
   flex-direction: column;
   place-content: center center;
+
+  gap: var(--spacing-3);
 }
