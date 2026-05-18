@@ -44,46 +44,35 @@ export default function LoginPage({ onLogin, onCreateUser }:LoginPageProps) {
 
 function LoginForm(props: LoginFormProps) {
   const [showPassword, setShowPassword] = useState(false)
-  const [newUser, setNewUser] = useState(false)
 
   return (
-    <form className={styles.loginForm} name='login-form' action={TEST_AUTH_SERVER + '/login'} method='post'>
-      <label>
-        Username: <input 
-        type='text' 
-        required 
-        name='username'
-        value={props.username} 
-        onChange={(e)=>props.setUsername(e.target.value)}></input>
-      </label>
-      <span>
+    <div>
+      <form className={styles.loginForm} name='login-form' action={TEST_AUTH_SERVER + '/login'} method='post'>
         <label>
-          Password: <input 
-            type={ showPassword ? 'text' : 'password' } 
-            required autoComplete='new-password' 
-            name='password'
-            value={props.password} 
-            onChange={(e)=>props.setPassword(e.target.value)}
-            placeholder="Enter Your Password"></input>
+          Username: <input 
+          type='text' 
+          required 
+          name='username'
+          value={props.username} 
+          onChange={(e)=>props.setUsername(e.target.value)}></input>
         </label>
-        <button type='button' onClick={()=>setShowPassword(!showPassword)}>
-          { showPassword ? 'Hide' : 'Show' }
-        </button>
-      </span>
-      { newUser ? 
-        <label>
-          Confirm Password: <input 
-            type={ showPassword ? 'text' : 'password' } 
-            required autoComplete='new-password'
-            value={props.confirmPass} 
-            onChange={(e)=>props.setConfirmPass(e.target.value)}
-            placeholder="Confirm Your Password"></input>
-        </label>
-        : '' }
-      <button type='button' onClick={()=>setNewUser(!newUser)}>
-        { newUser ? 'Existing User' : 'New User' }
-      </button>
-      <button>Submit</button>
-    </form>
+        <span>
+          <label>
+            Password: <input 
+              type={ showPassword ? 'text' : 'password' } 
+              required autoComplete='current-password' 
+              name='password'
+              value={props.password} 
+              onChange={(e)=>props.setPassword(e.target.value)}
+              placeholder="Enter Your Password"></input>
+          </label>
+          <button type='button' onClick={()=>setShowPassword(!showPassword)}>
+            { showPassword ? 'Hide' : 'Show' }
+          </button>
+        </span>
+        <button>Submit</button>
+      </form>
+      <a href='/sign-up' className={styles.signUp}>Create an Account</a>
+    </div>
   )
 }
