@@ -43,9 +43,7 @@ export interface ProfileInfoProps {
 export function ProfileInfo(props: ProfileInfoProps) {
   return (
     <section>
-      <span><p>Name:</p><p id='name'>{ props.name }</p></span>
-      <span><p>Name:</p><p id='name'>{ props.name }</p></span>
-      <span><p>Name:</p><p id='name'>{ props.name }</p></span>
+      <span><p>Name: { props.name }</p></span>
     </section>
   )
 }
@@ -58,8 +56,8 @@ export function ProfileContact(props: ProfileContactProps) {
 
   return (
     <section>
-      <span><p>Phone:</p><p id='name'>{ props.phone }</p></span>
-      <span><p>Email:</p><p id='name'>{ props.email }</p></span>
+      <span><p>Phone: { props.phone }</p></span>
+      <span><p>Email: { props.email }</p></span>
     </section>
   )
 }
