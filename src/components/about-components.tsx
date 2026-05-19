@@ -60,6 +60,6 @@ export function Contact() {
 
 export function Copyright() {
   return (
-    <p className={styles.copyright}>&copy; 2024-2025 Pointyware</p>
+    <p className={styles.copyright}>&copy; 2024-2026 Pointyware</p>
   )
 }
