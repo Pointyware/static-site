@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pointyware.org/subject.schema.json",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "subjects": {
+      "type": "array",
+      "items": {
+        "$ref": "https://pointyware.org/subject.schema.json"
+      }
+    }
+  }
+}

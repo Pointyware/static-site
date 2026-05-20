@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/object.schema.json",
+  "definitions": {
+    "object-list": {
+      "type": "object",
+      "properties": {
+        "$item-type": {
+          "type": "string",
+          "format": "uri"
+        },
+        "$items": {
+          "type": "array"
+        }
+      }
+    },
+    "structured-object": {
+      "type": "object",
+      "properties": {
+        "$type": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#definitions/object-list"
+    },
+    {
+      "$ref": "#definitions/structured-object"
+    }
+  ]
+}
