@@ -3,6 +3,7 @@ import { Harmattan, ZCOOL_XiaoWei, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "./_components/footer";
 import Header from "./_components/header";
+import Analytics from "@/components/analytics";
 
 const harmattan = Harmattan({
   weight: '500',
@@ -37,6 +38,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Analytics />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
         {children}
