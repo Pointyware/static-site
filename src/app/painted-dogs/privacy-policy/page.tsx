@@ -1,86 +1,16 @@
-<html><head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painted Dogs Privacy Policy</title>
-    <link rel="stylesheet" href="index_files/styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        h1, h2, h3 {
-            color: #333;
-        }
-        p {
-            color: #555;
-        }
-        a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+import PrivacyPolicy from "@/components/privacy-policy";
 
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-        .header p {
-            font-size: 1.2em;
-            color: #666;
-        }
-        .header img {
-            max-width: 100px;
-            margin-bottom: 20px;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        .section h2 {
-            font-size: 1.5em;
-            color: #444;
-        }
-        .section h3 {
-            font-size: 1.2em;
-            color: #555;
-        }
-        .section p {
-            font-size: 1em;
-            color: #666;
-        }
-        .section ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-        .section ul li {
-            margin-bottom: 10px;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #888;
-        }
-    </style>
-</head>
-<body>
+export default function PaintedDogsPrivacyPolicy() {
+
+  return (
+    <PrivacyPolicy 
+      projectName="Painted Dogs" 
+      lastUpdated="August 22, 2025"
+      data={[]} />
+  )
+}
+
+/*
 <div class="container">
     <div class="header">
         <h1>Painted Dogs Privacy Policy</h1>
@@ -200,5 +130,4 @@
 <div class="footer">
     <p>© 2025-2026 Pointyware LLC. All rights reserved.</p>
 </div>
-
-</body></html>
+*/
