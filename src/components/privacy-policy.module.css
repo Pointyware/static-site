@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -5,13 +6,15 @@ body {
     padding: 20px;
     background-color: #f4f4f4;
 }
-h1, h2, h3 {
+.policy h1, 
+.policy h2, 
+.policy h3 {
     color: #333;
 }
-p {
+.policy p {
     color: #555;
 }
-a {
+.policy a {
     color: #007BFF;
     text-decoration: none;
 }
@@ -27,42 +30,42 @@ a:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.header {
+.policy header {
     text-align: center;
     margin-bottom: 20px;
 }
-.header h1 {
+.policy header h1 {
     margin: 0;
     font-size: 2em;
 }
-.header p {
+.policy header p {
     font-size: 1.2em;
     color: #666;
 }
-.header img {
+.policy header img {
     max-width: 100px;
     margin-bottom: 20px;
 }
-.section {
+.policy section {
     margin-bottom: 20px;
 }
-.section h2 {
+.policy section h2 {
     font-size: 1.5em;
     color: #444;
 }
-.section h3 {
+.policy section h3 {
     font-size: 1.2em;
     color: #555;
 }
-.section p {
+.policy section p {
     font-size: 1em;
     color: #666;
 }
-.section ul {
+.policy section ul {
     list-style-type: disc;
     margin-left: 20px;
 }
-.section ul li {
+.policy section ul li {
     margin-bottom: 10px;
 }
 .footer {
