@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: 'export',
   /* config options here */
   reactCompiler: true,
   images: {
@@ -8,7 +9,9 @@ const nextConfig: NextConfig = {
       new URL('https://*') // TODO: restrict before production for security
     ]
   },
-  allowedDevOrigins: ['taushs-mac-studio.local']
+  allowedDevOrigins: [
+    process.env.DEV_HOST!
+  ]
 };
 
 export default nextConfig;
