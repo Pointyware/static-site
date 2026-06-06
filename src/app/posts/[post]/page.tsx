@@ -1,9 +1,19 @@
 
 import { Post } from '@/model/post'
 
-export function PostPage(post: Post) {
+export async function generateStaticParams() {
+  return [
+    { post: '0-0-0-0-0' }
+  ];
+}
+
+export default async function PostPage(
+  { params }: { params: Promise<{ post: string }> }
+) {
+  const { post } = await params;
+  const postModel = new Post('Default Title', new Date()); // TODO: fetch
   return <div>
-    <h1>{post.title}</h1>
-    {post.body}
+    <h1>{postModel.title}</h1>
+    <p>{postModel.body}</p>
   </div>
 }
