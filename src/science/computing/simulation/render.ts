@@ -3,37 +3,33 @@
  * This software is released under the GPL-3.0 License.
  * See LICENSE file in the project root for full license information.
  * 
- * render.mjs
+ * render.ts
  */
 
 /**
- * @abstract
- * @template {any} Subject
+ * 
  */
-export class Render2D {
+export abstract class Render2D<Subject> {
   /**
    * Draws the environment to the canvas context.
    * 
-   * @abstract
-   * @param {CanvasRenderingContext2D} context HTML Canvas simple context.
-   * @param {Subject} subject The subject to render.
-   * @param {number} offset Seconds offset since the last calculation frame.
+   * @param context HTML Canvas simple context.
+   * @param subject The subject to render.
+   * @param offset Seconds offset since the last calculation frame.
    */
-  render(context,subject,offset) {}
+  abstract render(context:CanvasRenderingContext2D,subject:Subject,offset:number): void
 }
 
 /**
- * @abstract
- * @template {any} Subject
+ * 
  */
-export class Render3D {
+export abstract class Render3D<Subject> {
   /**
    * Draws the environment to the webgl context.
    * 
-   * @abstract
-   * @param {WebGL2RenderingContext} context HTML Canvas WebGL 2 Context.
-   * @param {Subject} subject The subject to render.
-   * @param {number} offset Seconds offset since the last calculation frame.
+   * @param context HTML Canvas WebGL 2 Context.
+   * @param subject The subject to render.
+   * @param offset Seconds offset since the last calculation frame.
    */
-  render(context,subject,offset) {}
+  abstract render(context:WebGL2RenderingContext,subject:Subject,offset:number): void
 }
