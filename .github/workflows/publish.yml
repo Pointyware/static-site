@@ -43,4 +43,4 @@ jobs:
     steps:
       - name: Publish Archive to GitHub Pages
         id: publish
-        uses: actions/deploy-pages@4
+        uses: actions/deploy-pages@5
