@@ -10,10 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps: 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
+      - name: Setup Node
+        uses: actions/setup-node@v6
         with:
-          bun-version: 1.3.11
+          node-version: 25.2.1
       - name: Build Static Site Content (React)
         run: |
           npm run build
