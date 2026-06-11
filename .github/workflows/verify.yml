@@ -12,14 +12,24 @@ jobs:
     name: Tests
     runs-on: ubunut-latest
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
+
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: 25.2.1
+          cache: npm
+          
+      - name: Install Node Dependencies
+        run: |
+          npm install
+
       - name: Run Tests
         id: tests
         run: |
           npm run test
+
       - name: Enforce Formatting
         id: lint
         run: |
