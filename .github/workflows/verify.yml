@@ -23,7 +23,7 @@ jobs:
           
       - name: Install Node Dependencies
         run: |
-          npm install
+          npm ci
 
       - name: Run Tests
         id: tests
