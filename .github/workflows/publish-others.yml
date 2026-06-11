@@ -8,7 +8,7 @@ on:
       - none
 
 jobs:
-  build-node:
+  build_node:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Node
@@ -16,16 +16,14 @@ jobs:
         with:
           node-version: 25.2.1
       - name: Build Site
-      - name: Upload Artifact
-        uses: github/upload-artifact
+        run: |
+          npm run build
+      - name: Create and Upload Archive
+        uses: actions/upload-pages-artifact@v5
         with:
-          artifact-name: 
-      - name: Publish
-        uses: github/publish-pages
-        with:
-          file-path: 
+          path: ./out
 
-  build-bun:
+  build_bun:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Bun
@@ -33,33 +31,38 @@ jobs:
         with:
           bun-version: 1.3.11
       - name: Build Site
-        run: 
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v6
-        with:
-          path: output
-          name: github-pages
-      - name: Publish Archive to GitHub Pages
-        id: publish
-        uses: actions/deploy-pages@4
-        with:
-          name: 
-
-      - name: Report
         run: |
-          echo Successfully Deployed to {{ steps.publish.output.page_url }}!
+          bun run build
+      - name: Create and Upload Archive
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./out
 
-  build-deno:
+  build_deno:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Deno
+        run: |
+          echo Setup Deno
       - name: Build Site
-      - name: Upload Artifact
+        run: |
+          deno run build
+      - name: Create and Upload Archive
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./out
   
-  deploy-node:
-    depends-on: build-node
+
+  deploy_node:
+    needs: build_node
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.build_node.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Pull Artifact
-      - name: Publish to Pages
+      - name: Publish Archive to GitHub Pages
+        id: publish
+        uses: actions/deploy-pages@4
