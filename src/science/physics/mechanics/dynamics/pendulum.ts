@@ -8,6 +8,7 @@
 
 import { Entity } from "@/science/computing/simulation/entity"
 import { Environment } from "@/science/computing/simulation/environment"
+import { Render2D } from "@/science/computing/simulation/render"
 import { Point } from "@/utils/geom"
 
 /**
@@ -41,10 +42,11 @@ export class Pendulum extends Entity {
   /**
    * 
    * @param dt 
-   * @param environment 
    */
-  step(dt:number,environment:Environment) {
-    const angularAccel = environment.gravity * Math.cos(this.angle)
+  step(dt:number) {
+    // const environment:Environment
+    // const angularAccel = environment.gravity * Math.cos(this.angle)
+    const angularAccel = 0.5 * Math.cos(this.angle)
 
     this.angularVelocity += angularAccel * dt
 
@@ -55,28 +57,28 @@ export class Pendulum extends Entity {
 /**
  * Renders a {@codelink Pendulum} in a 2D context.
  */
-export class PendulumRender extends Render2D {
+export class PendulumRender extends Render2D<Pendulum> {
   /**
    * 
-   * @param {CanvasRenderingContext2D} context 
-   * @param {Pendulum} subject The subject to render.
+   * @param context 
+   * @param subject The subject to render.
    */
-  render(context, subject) {
+  render(context:CanvasRenderingContext2D, subject:Pendulum) {
     const weightX = Math.cos(subject.angle) * subject.length
     const weightY = Math.sin(subject.angle) * subject.length
 
     // draw rope
     context.strokeStyle = "white"
-    context.moveTo(subject.anchorX, subject.anchorY)
+    context.moveTo(subject.position.x, subject.position.y)
     context.lineTo(weightX, weightY)
     context.stroke()
     // draw anchor
     context.fillStyle = "white"
-    context.ellipse(subject.anchorX, subject.anchorY, 10, 10, 0, 0, Math.PI*2)
+    context.ellipse(subject.position.x, subject.position.y, 10, 10, 0, 0, Math.PI*2)
     context.fill()
     // draw weight
     context.fillStyle = "white"
-    context.ellipse(weightX, weightY, 20, 20)
+    context.ellipse(weightX, weightY, 20, 20, 0, 0, 2*Math.PI)
     context.fill()
   }
 }

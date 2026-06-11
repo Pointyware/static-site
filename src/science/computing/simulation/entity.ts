@@ -32,7 +32,7 @@ export abstract class Entity {
    * @param delta Change in time for this simulation step.
    */
   step(delta:number) {
-    throw new UnimplementedError(this,'step')
+    throw new UnimplementedError('Entity','step')
   }
 }
 
@@ -40,14 +40,14 @@ export abstract class Entity {
  * A simple renderer for an `Entity` that draws a black circle at the
  * entity's position.
  */
-export class EntityRender extends Render2D {
+export class EntityRender extends Render2D<Entity> {
   
   /**
-   * @param {CanvasRenderingContext2D} context 
-   * @param {Entity} subject
-   * @param {number} offset 
+   * @param context 
+   * @param subject
+   * @param offset 
    */
-  render(context,subject,offset) {
+  render(context:CanvasRenderingContext2D,subject:Entity,offset:number) {
     if (isNaN(subject.position.x) || isNaN(subject.position.y)) {
       return
     }

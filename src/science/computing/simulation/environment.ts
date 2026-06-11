@@ -28,13 +28,13 @@ export class Environment {
 
   set width(value:number) {
     this.size.current.width = value
-    this.onSetWidth()
+    this.onSetWidth(value)
   }
   get width() { return this.size.current.width }
 
   set height(value:number) {
     this.size.current.height = value
-    this.onSetHeight()
+    this.onSetHeight(value)
   }
   get height() { return this.size.current.height }
 
