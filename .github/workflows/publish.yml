@@ -10,14 +10,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps: 
+      - name: Checkout Code
+        uses: actions/checkout@v6
+        
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: 25.2.1
+
       - name: Build Static Site Content (React)
         run: |
           npm run build
-          
+
       - name: Create and Upload Archive
         uses: actions/upload-pages-artifact@v5
         with:

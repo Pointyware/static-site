@@ -11,6 +11,8 @@ jobs:
   build_node:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
@@ -26,6 +28,8 @@ jobs:
   build_bun:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
@@ -41,6 +45,8 @@ jobs:
   build_deno:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
       - name: Setup Deno
         run: |
           echo Setup Deno
