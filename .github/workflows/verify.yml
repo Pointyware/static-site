@@ -8,19 +8,19 @@ on:
       - main
 
 jobs:
-  lint:
-    name: Linting
-    runs-on: ubunut-latest
-    steps:
-      - name: Setup Node
-      - name: Test
-        run: |
   test:
     name: Tests
     runs-on: ubunut-latest
     steps:
       - name: Setup Node
-        name: Check Formatting and StylePasses Tests
+        uses: actions/setup-node@v6
+        with:
+          node-version: 25.2.1
+      - name: Run Tests
+        id: tests
         run: |
-          npm run test &&
+          npm run test
+      - name: Enforce Formatting
+        id: lint
+        run: |
           npm run lint
