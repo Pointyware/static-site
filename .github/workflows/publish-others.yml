@@ -1,11 +1,11 @@
 name: Build and Publish Site
 description: Build Static Site Content (React)
-run-name: Build REF({{ inputs. }})
+run-name: Build REF({{ github.head_ref }})
 
 on:
   push:
     branches:
-      - main
+      - none
 
 jobs:
   build-node:
