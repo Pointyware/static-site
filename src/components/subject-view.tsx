@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation'
 import styles from '@/app/page.module.css'
 
 
-export function SubjectView({path}:{path:any}) {
+export function SubjectView({path}:{path:Array<string>|string|undefined}) {
   if (path == undefined) {
     return <p>Undefined</p>
   }
