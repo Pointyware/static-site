@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { sleep } from '@/utils/async.mjs';
 
 
 export interface SimulationViewProps {
@@ -59,4 +60,34 @@ export default function SimulationView(props: SimulationViewProps) {
       Your browser does not support the HTML5 canvas element.
     </canvas>
   )
+}
+
+function render() {
+
+}
+
+function step(delta: number) {
+
+}
+
+
+let period = 1000 / 30
+let running = true
+async function simulationLoop(delta: number) {
+  
+  while (running) {
+    const timeNow = performance.now()
+
+    render()
+    step(delta)
+
+    const timeAfter = performance.now()
+    const remaining = period - (timeAfter - timeNow)
+
+    if (remaining > 1) await sleep(remaining)
+  }
+}
+
+function stop() {
+  running = false
 }
