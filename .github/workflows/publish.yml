@@ -1,5 +1,5 @@
 name: Publish Static Site
-run-name: Publish REF({{ github.ref }})
+run-name: Publish REF(${{ github.ref }})
 
 on:
   push:
